@@ -1,6 +1,8 @@
 package models;
 
-public class Quotes {
+import java.io.Serializable;
+
+public class Quotes implements Serializable {
 
     private String author_first_name;
     private String author_last_name;
@@ -28,7 +30,7 @@ public class Quotes {
         return content;
     }
 
-    public String setContent(){
+    public void setContent(String content){
         this.content = content;
     }
 }
