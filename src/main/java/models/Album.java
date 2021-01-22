@@ -5,16 +5,16 @@ import java.util.Date;
 
 //Do I need the Ser. implementation?
 
-public class Albums implements Serializable {
+public class Album implements Serializable {
 
     private int id;
     private String artist;
     private String name;
-    private Date releaseDate;
-    private Long sales;
+    private int releaseDate;
+    private double sales;
     private String genre;
 
-    public Albums(){}
+    public Album(){}
 
 //    Not necessary due to SQL auto incrementing
 
@@ -48,20 +48,20 @@ public class Albums implements Serializable {
 
 
 
-    public Date getReleaseDate(){
+    public int getReleaseDate(){
         return this.releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate){
+    public void setReleaseDate(int releaseDate){
         this.releaseDate = releaseDate;
     }
 
 
-    public Long getSales(){
+    public double getSales(){
         return this.sales;
     }
 
-    public void setSales(Long sales){
+    public void setSales(double sales){
         this.sales = sales;
     }
 
