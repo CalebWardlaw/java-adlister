@@ -7,6 +7,7 @@ import java.io.IOException;
 
 @WebServlet (name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+//    Do get is used to avoid having the .jsp extension on the url
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 //  req.getRequestDispatcher - sends out request, and forwards it to/login
         req.getRequestDispatcher("/login.jsp").forward(req, res);
