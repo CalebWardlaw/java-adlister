@@ -4,11 +4,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
 //    Testing push
@@ -16,12 +19,24 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        boolean validAttempt = username.equals("admin") && password.equals("password");
+        boolean validAttempt = username.equals("admin") || username.equals("user") && password.equals("password");
 
-        if (validAttempt) {
+        HttpSession session = request.getSession();
+
+        if (validAttempt && username.equals("admin")) {
+            session.setAttribute("isAdmin",true);
+            response.sendRedirect("/admin");
+
+        } else if(validAttempt && username.equals("user")){
+            session.setAttribute("isAdmin",false);
             response.sendRedirect("/profile");
-        } else {
+        }
+
+        else {
             response.sendRedirect("/login");
         }
     }
 }
+
+
+//request.getsession.invalidate
