@@ -1,0 +1,15 @@
+The first rs.next() will go to the next iteration, can use rs.beforeFirst() or rs.previous
+
+for exmaple if you call
+
+rs.next()
+
+then
+
+rs.next() again => will start from index 2
+
+_________________
+
+SQL metadata are things like the keys, column names, information about the table
+
+ResultSetMetaData rsmd = rs.getMetaData();
