@@ -28,11 +28,13 @@ public class MySQLAdsDao implements Ads  {
 
     @Override
     public List<Ad> all() {
+        //put in SQL databse code
         return null;
     }
 
     @Override
     public Long insert(Ad ad) {
+        //put in SQL database code
         return null;
     }
 }
