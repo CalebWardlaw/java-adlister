@@ -20,3 +20,7 @@ CREATE TABLE ads (
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
+
+INSERT INTO users (id, username, email, password)
+VALUES ('1', 'user', 'calebwardlaw@gmail.com', 'password');
+
